@@ -49,16 +49,14 @@ body{
 	cursor: pointer;
 }
 /*背景模糊*/
-#img:hover{
-	imgfilter: url(blur.svg#blur); /* FireFox, Chrome, Opera */	    
+#img:hover{	    
 	    -webkit-filter: blur(5px); /* Chrome, Opera */
 	       -moz-filter: blur(5px);
 	        -ms-filter: blur(5px);    
 	            filter: blur(5px);    
 	    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false); /* IE6~IE9 */;
 }
-#text:hover +#img{
-  imgfilter: url(blur.svg#blur); /* FireFox, Chrome, Opera */	    
+#text:hover +#img{    
       -webkit-filter: blur(5px); /* Chrome, Opera */
          -moz-filter: blur(5px);
           -ms-filter: blur(5px);    
