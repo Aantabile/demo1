@@ -1,0 +1,251 @@
+*{
+	margin: 0;
+	padding:0;
+}
+/*flex布局居中*/
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#box{
+	width: 400px;
+	height: 200px;
+	position: relative;
+	margin: 0 auto;/*满足IE*/
+    font-weight: bold;
+}
+#img{
+	background:url(../img/psb.jpg) no-repeat;
+	width: 398px;
+	height: 196px;
+	z-index: 2;
+}
+#text{
+	position: absolute;
+	left: 35px;
+	top: 0;
+	z-index: 10;
+	width: 330px;
+	height:192px;
+	display: none;
+}
+#text1{
+	position: relative;
+	font-size: 25px;
+	height:80px;
+	padding-top: 50px;
+	text-align: center;
+
+}
+#text2{
+	position: relative;
+	font-size: 20px;
+	height: 72px;
+	text-align: center;
+
+}
+#text2:hover{
+	cursor: pointer;
+}
+/*背景模糊*/
+#img:hover{
+	imgfilter: url(blur.svg#blur); /* FireFox, Chrome, Opera */	    
+	    -webkit-filter: blur(5px); /* Chrome, Opera */
+	       -moz-filter: blur(5px);
+	        -ms-filter: blur(5px);    
+	            filter: blur(5px);    
+	    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false); /* IE6~IE9 */;
+}
+#text:hover +#img{
+  imgfilter: url(blur.svg#blur); /* FireFox, Chrome, Opera */	    
+      -webkit-filter: blur(5px); /* Chrome, Opera */
+         -moz-filter: blur(5px);
+          -ms-filter: blur(5px);    
+              filter: blur(5px);    
+      filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false); /* IE6~IE9 */;
+}
+#box:hover #text{
+   display: block;
+}
+/*字体流光*/
+#box:hover #text>#text1{
+	background-image: -webkit-linear-gradient(left, rgb(220,110,153), rgb(172,106,162) 25%, rgb(125,188,211) 50%, rgb(148,149,187) 75%, rgb(186,149,179));
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-background-size: 200% 100%;
+	-webkit-animation: text1-animation 4s infinite linear;
+}
+@-webkit-keyframes text1-animation {
+    0%  { background-position: 0 0;}
+    100% { background-position: -100% 0;}
+}
+/*报名文字颜色变化*/
+#box:hover #text>#text2{
+	animation: myfirst  4s infinite;
+	-moz-animation: myfirst  4s infinite;	/* Firefox */
+	-webkit-animation: myfirst  4s infinite;	/* Safari 和 Chrome */
+	-o-animation: myfirst  4s infinite;	/* Opera */
+}
+@-webkit-keyframes myfirst {
+    0%  { color:rgb(113,189,144);}
+    100% { color:rgb(78,118,218);}
+}
+/* 按钮边框的从中间到两边扩展开 */
+#text:before{
+	content: "";
+	position: absolute;
+	left:0;
+	top:50%;
+	display: block;
+	width:3px;
+	background: #fff;
+}
+#box:hover #text:before{
+	height:1px;
+	animation: left  8s infinite;
+	-moz-animation: left  8s infinite;	/* Firefox */
+	-webkit-animation: left  8s infinite;	/* Safari 和 Chrome */
+	-o-animation: left  8s infinite;	/* Opera */
+}
+@-webkit-keyframes left {
+	0%  { 
+		transform: scale(1,96);
+		-ms-transform: scale(1,96);	/* IE 9 */
+		-webkit-transform: scale(1,96);	/* Safari 和 Chrome */
+		-o-transform: scale(1,96);	/* Opera */
+		-moz-transform: scale(1,96);	/* Firefox */
+	}
+	50%{
+		transform: scale(1,160);
+		-ms-transform: scale(1,160);	/* IE 9 */
+		-webkit-transform: scale(1,160);	/* Safari 和 Chrome */
+		-o-transform: scale(1,160);	/* Opera */
+		-moz-transform: scale(1,160);	/* Firefox */	
+	}
+	100% {
+		transform: scale(1,0);
+		-ms-transform: scale(1,0);	/* IE 9 */
+		-webkit-transform: scale(1,0);	/* Safari 和 Chrome */
+		-o-transform: scale(1,0);	/* Opera */
+		-moz-transform: scale(1,0);	/* Firefox */
+  }
+}
+#text:after{
+	content: "";
+	position: absolute;
+	right:0;
+	top:50%;
+	display: block;
+	width:3px;
+	background: #fff;
+}
+#box:hover #text:after{
+	height:1px;
+	animation: right  8s infinite;
+	-moz-animation: right  8s infinite;	/* Firefox */
+	-webkit-animation: right  8s infinite;	/* Safari 和 Chrome */
+	-o-animation: right  8s infinite;	/* Opera */
+}
+@-webkit-keyframes right {
+	0%  { 
+		transform: scale(1,96);
+		-ms-transform: scale(1,96);	/* IE 9 */
+		-webkit-transform: scale(1,96);	/* Safari 和 Chrome */
+		-o-transform: scale(1,96);	/* Opera */
+		-moz-transform: scale(1,96);	/* Firefox */
+	}
+	50%{
+		transform: scale(1,160);
+		-ms-transform: scale(1,160);	/* IE 9 */
+		-webkit-transform: scale(1,160);	/* Safari 和 Chrome */
+		-o-transform: scale(1,160);	/* Opera */
+		-moz-transform: scale(1,160);	/* Firefox */	
+	}
+	100% {
+		transform: scale(1,0);
+		-ms-transform: scale(1,0);	/* IE 9 */
+		-webkit-transform: scale(1,0);	/* Safari 和 Chrome */
+		-o-transform: scale(1,0);	/* Opera */
+		-moz-transform: scale(1,0);	/* Firefox */
+  }
+}
+#text2:after{
+	content: "";
+	position: absolute;
+	left:50%;
+	bottom:20px;
+	display: block;
+	height: 5px;
+	background: #fff;
+}
+#box:hover #text2:after{
+	width:1px;
+	animation: bottom  8s infinite;
+	-moz-animation: bottom  8s infinite;	/* Firefox */
+	-webkit-animation: bottom  8s infinite;	/* Safari 和 Chrome */
+	-o-animation: bottom  8s infinite;	/* Opera */
+}
+@-webkit-keyframes bottom {
+	0%  { 
+		transform: scale(181,1);
+		-ms-transform: scale(181,1);	/* IE 9 */
+		-webkit-transform: scale(181,1);	/* Safari 和 Chrome */
+		-o-transform: scale(181,1);	/* Opera */
+		-moz-transform: scale(181,1);	/* Firefox */
+	}
+	50%{
+		transform: scale(332,1);
+		-ms-transform: scale(332,1);	/* IE 9 */
+		-webkit-transform: scale(332,1);	/* Safari 和 Chrome */
+		-o-transform: scale(332,1);	/* Opera */
+		-moz-transform: scale(332,1);	/* Firefox */	
+	}
+	100% {
+		transform: scale(1,0);
+		-ms-transform: scale(1,0);	/* IE 9 */
+		-webkit-transform: scale(1,0);	/* Safari 和 Chrome */
+		-o-transform: scale(1,0);	/* Opera */
+		-moz-transform: scale(1,0);	/* Firefox */
+  }
+}
+#text1:before{
+	content: "";
+	position: absolute;
+	left:50%;
+	top:16px;
+	display: block;
+	width:5px;
+	height: 5px;
+	background:#fff;
+}
+#box:hover #text1:before{
+	width:1px;
+	animation: top  8s infinite;
+	-moz-animation: top  8s infinite;	/* Firefox */
+	-webkit-animation: top  8s infinite;	/* Safari 和 Chrome */
+	-o-animation: top  8s infinite;	/* Opera */
+}
+@-webkit-keyframes top {
+	0%  { 
+		transform: scale(181,1);
+		-ms-transform: scale(181,1);	/* IE 9 */
+		-webkit-transform: scale(181,1);	/* Safari 和 Chrome */
+		-o-transform: scale(181,1);	/* Opera */
+		-moz-transform: scale(181,1);	/* Firefox */
+	}
+	50%{
+		transform: scale(332,1);
+		-ms-transform: scale(332,1);	/* IE 9 */
+		-webkit-transform: scale(332,1);	/* Safari 和 Chrome */
+		-o-transform: scale(332,1);	/* Opera */
+		-moz-transform: scale(332,1);	/* Firefox */	
+	}
+	100% {
+		transform: scale(1,0);
+		-ms-transform: scale(1,0);	/* IE 9 */
+		-webkit-transform: scale(1,0);	/* Safari 和 Chrome */
+		-o-transform: scale(1,0);	/* Opera */
+		-moz-transform: scale(1,0);	/* Firefox */
+  }
+}
